@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Koulen&family=Raleway:wght@400;500;600&display=swap');
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "variables";
+
+html, body, p {
+  font-family: 'Raleway', sans-serif;
+  color: $main-text-color;
+}
+
+.title {
+  font-family: 'Koulen', serif;
+  letter-spacing: 10%;
+}
