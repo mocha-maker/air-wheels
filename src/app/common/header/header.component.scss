@@ -1,0 +1,39 @@
+@import 'variables';
+
+.navbar {
+  padding: 20px;
+  margin-bottom: 40px;
+
+  .aw-search {
+    height: 50px;
+    max-width: 300px;
+  }
+
+  .navbar-brand {
+    margin-right: 30px;
+    font-size: 30px;
+    font-family: 'Koulen', serif;
+    letter-spacing: 0.1em;
+    color: $main-color;
+    font-weight: 500;
+  }
+
+  .nav-item {
+    font-size: 14px;
+    font-color: #000;
+  }
+
+  .btn-aw-search {
+    border-color: $main-text-color;
+    color: $main-text-color;
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: transparent;
+      border-color: $main-color !important;
+      color: $main-color !important;
+      box-shadow: none;
+    }
+  }
+}
