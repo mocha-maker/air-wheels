@@ -50,24 +50,25 @@ export class RentalService {
     },
   ];
 
+  public getRentalById(rentalId: number): Observable<Rental> {
+    return new Observable<Rental>((observer) => {
+      setTimeout(() => {
+        const foundRental = this.rentals.find((rental) => {
+          return rental.id == rentalId;
+        });
+        console.log(foundRental);
+        // Send data
+        observer.next(foundRental);
+      }, 500);
+    });
+  }
+
   public getRentals(): Observable<Rental[]> {
-    const rentalObservable:Observable<Rental[]>  = new Observable((observer) => {
+    return new Observable<Rental[]>((observer) => {
       setTimeout(() => {
         // Send data
         observer.next(this.rentals);
       }, 1000);
-
-      setTimeout(() => {
-        // Send error
-        observer.error('I AM ERROR');
-      }, 2000);
-
-      setTimeout(() => {
-        // Send complete
-        observer.complete();
-      }, 3000);
     });
-
-    return rentalObservable;
   }
 }

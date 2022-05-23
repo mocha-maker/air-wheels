@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Koulen&family=Raleway:wght@400;500;600&display=swap');
-@import "~bootstrap/dist/css/bootstrap.css";
 @import "variables";
 
 html, body, p {
@@ -7,42 +5,5 @@ html, body, p {
   color: $main-text-color;
 }
 
-#rentalListing {
-  .title {
-    font-size: 30px;
-      font-weight: 600;
-      font-family: 'Koulen', serif;
-      letter-spacing: 10%;
-    }
-
-    /* SINGLE CARD STYLES */
-    .aw-card {
-      border: none;
-      margin: 1vw;
-
-      .card-block {
-        padding-top: 8px;
 
 
-        .card-subtitle {
-          font-weight: 600;
-          font-size: 12px;
-          text-transform: uppercase;
-          color: $main-color;
-        }
-
-        .card-title {
-          font-size: 20px;
-          font-family: $heading-font;
-
-        }
-
-        .card-text {
-          font-size: 14px;
-          font-weight: bold;
-          color: $light-gray-color;
-          margin-bottom: 0;
-        }
-      }
-    }
-  }
