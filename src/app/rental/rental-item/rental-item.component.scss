@@ -1,0 +1,37 @@
+@import "variables";
+
+a {
+  text-decoration: none;
+}
+
+/* SINGLE CARD STYLES */
+.aw-card {
+  border: none;
+  margin: 1vw;
+
+  .card-block {
+    padding-top: 8px;
+
+
+    .card-subtitle {
+      font-weight: 600;
+      font-size: 12px;
+      text-transform: uppercase;
+      color: $main-color;
+    }
+
+    .card-title {
+      font-size: 20px;
+      font-family: $heading-font;
+
+    }
+
+    .card-text {
+      font-size: 14px;
+      font-weight: bold;
+      color: $light-gray-color;
+      margin-bottom: 0;
+    }
+  }
+}
+

@@ -19,7 +19,7 @@
   }
 
   .nav-item {
-    font-size: 14px;
+    font-size: 18px;
     font-color: #000;
   }
 
@@ -35,5 +35,13 @@
       color: $main-color !important;
       box-shadow: none;
     }
+  }
+}
+
+.filter-button {
+
+  .btn {
+    text-transform: uppercase;
+    font-weight: 600;
   }
 }
