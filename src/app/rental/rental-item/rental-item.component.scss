@@ -2,6 +2,11 @@
 
 a {
   text-decoration: none;
+  color: $main-text-color;
+
+  &:hover {
+    color: $light-gray-color;
+  }
 }
 
 /* SINGLE CARD STYLES */
