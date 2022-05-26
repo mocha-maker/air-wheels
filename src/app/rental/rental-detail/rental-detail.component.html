@@ -1,15 +1,45 @@
-<div *ngIf="rental">
-  <img src='{{rental.image}}' alt='{{rental.title}}'/>
-  <p>ID: {{rental.id}}</p>
-  <p>Title: {{rental.title}}</p>
-  <p>City: {{rental.city}}</p>
-  <p>Country: {{rental.country}}</p>
-  <p>Category: {{rental.category}}</p>
-  <p>Specs</p>
-  <p>Battery: {{rental.battery}}</p>
-  <p>Motor: {{rental.motor}}</p>
-  <p>Speed: {{rental.speed}}</p>
-  <p>Range: {{rental.range}}</p>
-  <p>Weight: {{rental.weight}}</p>
-  <p>Daily Rate: {{rental.dailyRate}}</p>
+<section id='rentalDetails' *ngIf="rental">
+  <div class="upper-section container-fluid">
+    
+      <!-- Map Placeholder -->
+      <img src='{{rental.image}}' alt='{{rental.title}}'/>
+      <img src='{{rental.image}}' alt='{{rental.title}}'/>
+    
+  </div>
+<div class="details-section container-fluid">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="rental">
+        <h2 class="rental-type {{rental.category}}">{{rental.category}} wheel</h2>
+        <h3 class="rental-title">{{rental.title}}</h3>
+        <h3>${{rental.dailyRate}} per day</h3>
+        <h2 class="rental-city">{{rental.city}} {{rental.country}}</h2>
+        <p class="rental-description">
+          {{rental.description}}
+        </p>
+        <div class="rental-specs">
+          <h3 class="title">Wheel Specifications</h3>
+          <p>Wheel Diameter: {{rental.wheelDiameter}}</p>
+          <p>Battery: {{rental.battery}}</p>
+          <p>Motor: {{rental.motor}} KWph</p>
+          <p>Speed: {{rental.speed}} mph</p>
+          <p>Range: {{rental.range}} miles</p>
+          <p>Weight: {{rental.weight}} lbs</p>
+        </div>
+
+        <hr/>
+        <div class="rental-assets">
+          <h3 class="title">Assets</h3>
+          <div class="col-md-6">
+            <span><i class="fa fa-plus"></i> Upgraded Pedals</span>
+            <span><i class="fa fa-plug"></i> Charger Included</span>
+            <span><i class="fa fa-shield"></i> Safety Gear Included</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="booking-sidebar"><div class="btn btn-primary">BOOKING</div>
+  </div>
+  </div>
 </div>
+</section>

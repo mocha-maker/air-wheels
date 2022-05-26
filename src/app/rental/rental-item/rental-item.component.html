@@ -1,8 +1,8 @@
-<a routerLink="/rentals/{{rental.id}}">
+<a routerLink="/rentals/{{rental._id}}">
   <div class="card aw-card">
     <img src={{rental.image}} alt={{rental.title}} class="card-img-top">
     <div class="card-block">
-      <h6 class="card-subtitle">{{rental.city}}&#183; {{rental.country}}</h6>
+      <h6 class="card-subtitle {{rental.category}}">{{rental.category}} wheel | {{rental.city}}&#183; {{rental.country}}</h6>
       <h4 class="card-title">{{rental.title}}</h4>
       <p class="card-text">${{rental.dailyRate}} per day</p>
       <a href="#" class="card-link">More Info</a>
