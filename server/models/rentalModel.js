@@ -13,6 +13,7 @@ const rentalSchema = new mongoose.Schema(
     battery: { type: String, default: "No battery provided" },
     motor: { type: String, default: "No motor provided" },
     range: { type: String, default: "No range provided" },
+    wheelDiameter: { type: String, required: true },
     speed: { type: Number, default: 0 },
     weight: { type: Number, default: 0 },
     dailyRate: { type: Number, required: true },

@@ -1,9 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Koulen:wght@400;500;600&family=Raleway:wght@400;500;600&display=swap');
 @import "variables";
+
 
 html, body, p {
   font-family: 'Raleway', sans-serif;
   color: $main-text-color;
 }
 
+
+.portable {
+  color: skyblue !important;
+}
+
+.suspension {
+  color: olivedrab !important;
+}
+
+.advanced {
+  color: rgb(189, 39, 39) !important;
+}
 
 

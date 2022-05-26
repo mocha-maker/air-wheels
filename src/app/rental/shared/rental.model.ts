@@ -7,9 +7,11 @@ export class Rental {
   category: string = '';
   battery: string = '';
   motor: string = '';
+  wheelDiameter: string = '';
   range: string = '';
   speed: number = 0;
   weight: number = 0;
   dailyRate: number = 0;
+  description: string = '';
   image: string = '';
 }
