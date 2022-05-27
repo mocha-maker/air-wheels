@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Rental } from '../shared/rental.model';
 import { RentalService } from '../shared/rental.service';
 
+
 @Component({
   selector: 'aw-rental-detail',
   templateUrl: './rental-detail.component.html',
@@ -10,6 +11,7 @@ import { RentalService } from '../shared/rental.service';
 })
 export class RentalDetailComponent implements OnInit {
   public rental!: Rental;
+  location!: string;
 
   constructor(
     private _activatedRoute: ActivatedRoute,

@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 import { RentalService } from './shared/rental.service';
 import { RentalDetailComponent } from './rental-detail/rental-detail.component';
 import { RentalRoutingModule } from './rental-routing.module';
+import { MapComponent } from '../common/map/map.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { RentalRoutingModule } from './rental-routing.module';
     RentalListComponent,
     RentalItemComponent,
     RentalDetailComponent,
+    MapComponent,
   ],
   imports: [CommonModule, RentalRoutingModule, HttpClientModule],
   providers: [RentalService],

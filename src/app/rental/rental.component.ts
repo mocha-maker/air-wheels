@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'aw-rental',
   templateUrl: './rental.component.html',
