@@ -1,10 +1,12 @@
 <section id='rentalDetails' *ngIf="rental">
-  <div class="upper-section container-fluid">
+  <div class="upper-section container-fluid align-content-start">
     
-      <!-- Map Placeholder -->
-      <img src='{{rental.image}}' alt='{{rental.title}}'/>
-      <img src='{{rental.image}}' alt='{{rental.title}}'/>
-    
+      <div class="images-carousel">
+        <img src='{{rental.image}}' alt='{{rental.title}}'/>
+      </div>
+      <aw-map class="map-container" [rental]='rental'>
+        
+      </aw-map>
   </div>
 <div class="details-section container-fluid">
   <div class="row">

@@ -20,4 +20,10 @@ html, body, p {
   color: rgb(189, 39, 39) !important;
 }
 
-
+.map-container {
+  margin: 0;
+  flex: 1;
+  max-width: 500px;
+  height: 400px;
+  background-color: pink;
+}

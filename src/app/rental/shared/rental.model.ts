@@ -3,6 +3,7 @@ export class Rental {
   id: number = 0;
   title: string = '';
   city: string = 'New York';
+  state: string = 'NY';
   country: string = 'USA';
   category: string = '';
   battery: string = '';
