@@ -1,4 +1,5 @@
 const Rental = require("./models/rentalModel");
+const User = require("./models/userModel");
 
 class FakeDb {
   constructor() {
@@ -9,6 +10,7 @@ class FakeDb {
         country: "USA",
         category: "Suspension Wheel",
         battery: "728Wh",
+        wheelDiameter: "18 inches",
         motor: "1000W",
         range: "38 mi",
         speed: 21.7,
@@ -23,6 +25,7 @@ class FakeDb {
         category: "Portable Wheel",
         battery: "512Wh",
         motor: "800W",
+        wheelDiameter: "14 inches",
         range: "25-30 mi",
         speed: 23,
         weight: 22,
@@ -36,6 +39,7 @@ class FakeDb {
         category: "Advanced Wheel",
         battery: "1500Wh",
         motor: "2000W",
+        wheelDiameter: "16 inches",
         range: "25-30 mi",
         speed: 31,
         weight: 48.5,
@@ -43,19 +47,44 @@ class FakeDb {
         image: "http://via.placeholder.com/350x250",
       },
     ];
+
+    this.users = [
+      {
+        name: "fakeUser",
+        email: "fake@email.com",
+        password: "Password1",
+      },
+    ];
   }
 
-  pushRentalsToDb() {
+  pushDataToDb() {
+    const user = new User(this.users[0]);
+
     this.rentals.map((rental) => {
       const newRental = new Rental(rental);
+
+      // set user as each rental user
+      newRental.user = user._id;
       console.log(newRental);
+      user.rentals.push(newRental._id);
+
+      // save rental
       newRental.save();
+      console.log("Saved" + newRental);
     });
+
+    user.save();
   }
 
-  seedDB() {
+  async cleanDb() {
+    await User.deleteMany({});
+    await Rental.deleteMany({});
+  }
+
+  async seedDB() {
+    await this.cleanDb();
     console.log("Seeding Database");
-    this.pushRentalsToDb();
+    this.pushDataToDb();
   }
 }
 

@@ -1,14 +1,17 @@
-// import utility modules
+// import modules
 const express = require("express");
 const mongoose = require("mongoose");
 const colors = require("colors");
 const dotenv = require("dotenv").config();
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+const expressAsyncHandler = require("express-async-handler");
 
 // Server Components
 const connectDB = require("./config/db");
 const { errorHandler } = require("./middleware/errorMiddleware");
-const Rental = require("./models/rentalModel");
 const rentalRoutes = require("./routes/rentalRoutes");
+const userRoutes = require("./routes/userRoutes");
 
 // run express
 const app = express();
@@ -19,8 +22,14 @@ const PORT = process.env.PORT || 3001;
 // Connect to MongoDB
 connectDB();
 
+// Set response data encoding
+app.use(express.json()); // Accept data in json
+app.use(express.urlencoded({ extended: false }));
+
 // Routes
-app.use("/api/v1/rentals", rentalRoutes);
+const apiVersion = "/api/v1";
+app.use(apiVersion + "/rentals", rentalRoutes);
+app.use(apiVersion + "/users", userRoutes);
 
 // Server Frontend - check if in production
 if (process.env.NODE_ENV === "production") {
