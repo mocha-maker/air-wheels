@@ -60,6 +60,10 @@ export class AuthService {
     return moment().isBefore(this.getExpiration());
   }
 
+  public getAuthToken(): string {
+    return localStorage.getItem('aw_auth') || '';
+  }
+
   public getUsername(): string {
     return this.decodedToken.name;
   }
