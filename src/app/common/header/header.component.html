@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand logo" href="#" data-test="logo">AirWheels</a>
+  <a class="navbar-brand logo" routerLink="/" data-test="logo">AirWheels</a>
   
 
 
@@ -12,14 +12,26 @@
       <button class="btn my-2 my-sm-0 btn-aw-search" type="submit">Search</button>
     </form>
     <ul class="navbar-nav">
+
+      <ng-container *ngIf="!auth.isAuthenticated()">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/register">Register</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/login">Login</a>
+        </li>
+      </ng-container>
+      <ng-container *ngIf="auth.isAuthenticated()">
+        <li class="nav-item" >
+          <a routerLink="/profile" class="nav-link">Hello, {{auth.getUsername()}} </a>
+        </li>
+        <li class="nav-item" >
+          <a class="nav-link" (click)="logout()" routerLink="/">Logout</a>
+        </li>
+      </ng-container>
+
       <li class="nav-item">
-        <a class="nav-link" href="/lender">Become a Lender</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/login">Login</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/help">Help</a>
+        <a class="nav-link" routerLink="/help">Help</a>
       </li>
     </ul>
   </div>

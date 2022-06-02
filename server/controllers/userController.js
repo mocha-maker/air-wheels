@@ -41,7 +41,9 @@ exports.register = expressAsyncHandler(async (req, res) => {
 
   // Save to MongoDB and Generate server response
   user.save(async (err) => {
-    if (err) return res.status(422).send(err);
+    if (err) {
+      throw new Error(err);
+    }
     // 201 Created
     return res.status(201).json({
       _id: user._id,
@@ -62,7 +64,7 @@ exports.auth = expressAsyncHandler(async (req, res) => {
   // Check for complete input
   if (!password || !email) {
     res.status(400);
-    throw new Error("Missing information");
+    throw new Error("Missing information", "");
   }
 
   // Check if user email exists in database
@@ -75,7 +77,7 @@ exports.auth = expressAsyncHandler(async (req, res) => {
       name: user.name,
       email: user.email,
       isAdmin: user.isAdmin,
-      token: generateToken(user._id),
+      token: generateToken(user._id, user.name),
     });
   } else {
     res.status(401);
@@ -131,6 +133,6 @@ exports.getByEmail = expressAsyncHandler(async (req, res) => {
 });
 
 // Generate a JSON token; Expires in 30days
-const generateToken = (id) => {
-  return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: "30d" });
+const generateToken = (id, name) => {
+  return jwt.sign({ id, name }, process.env.JWT_SECRET, { expiresIn: "30d" });
 };

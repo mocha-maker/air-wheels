@@ -1,0 +1,75 @@
+<section id="register">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-5">
+        <h1 class="page-title">Register</h1>
+        <form #registerForm="ngForm" (ngSubmit)="register()">
+          <div class="form-label">
+            <label for="name" >Name</label>
+            <input type="text"
+                  #name='ngModel'
+                  minlength='4'
+                   class="form-control"
+                   id="name"
+                   name='name'
+                   [(ngModel)]="formData.name"
+                   required>
+          </div>
+          <!-- Error Messages -->
+          <div *ngIf="name.invalid && (name.dirty || name.touched)"
+            class="alert alert-danger">
+
+          <div *ngIf="name.errors?.['required']">
+            Name is required.
+          </div>
+          <div *ngIf="name.errors?.['minlength']">
+            Name must be at least 4 characters long.
+          </div>
+
+        </div>
+        <!-- TODO: Add error messages for other form inputs -->
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email"
+                   class="form-control"
+                   id="email"
+                   name='email'
+                   [(ngModel)]="formData.email"
+                   required>
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password"
+                   class="form-control"
+                   id="password"
+                   name='password'
+                   [(ngModel)]="formData.password"
+                   required>
+          </div>
+
+          <div class="form-group">
+            <label for="passwordConfirmation">Confirm Password</label>
+            <input type="password"
+                   class="form-control"
+                   id="passwordConfirmation"
+                   name='confirmPassword'
+                   [(ngModel)]="formData.confirmPassword"
+                   required>
+          </div>
+          <button [disabled]="!registerForm.form.valid" type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <div *ngIf="errors.length > 0" class="alert alert-danger">
+          {{errors}}
+        </div>
+      </div>
+      <!-- TODO: Add links to login if already registered and vice versa for login page -->
+      <div class="col-md-6 ml-auto">
+        <div class="image-container">
+          <h2 class="catchphrase">As our member you have access to best way to get around, anywhere in the world.</h2>
+          <img src="assets/images/register-image.jpg" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
