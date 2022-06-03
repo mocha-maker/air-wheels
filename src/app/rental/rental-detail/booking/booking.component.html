@@ -1,0 +1,20 @@
+<div class="booking">
+  <h3 class="booking-price">${{rental.dailyRate}} <span class="booking-per-day">per day</span></h3>
+  <hr>
+  <label>Dates</label>
+  <input class="form-control" 
+  type="text"
+  ngxDaterangepickerMd 
+  [(ngModel)]="selected"
+  (click)='chosenDates($event)'
+  name="daterange"
+  placeholder="Select dates..."/>
+  
+  <div class="form-group">
+    <label for="guests">Guests</label>
+    <input type="number" class='form-control' id='guests' aria-describedby='emailHelp' placeholder=''>
+  </div>
+  <button class="btn btn-danger btn-confirm block">Book Now</button>
+  <p class="booking-note-title">People are interested in this wheel.</p>
+  <div class="booking-note-text">More than 50 people checked this rental in the last month.</div>
+</div>
