@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Rental } from '../shared/rental.model';
 import { RentalService } from '../shared/rental.service';
 
+
 @Component({
   selector: 'aw-rental-list',
   templateUrl: './rental-list.component.html',
