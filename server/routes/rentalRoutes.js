@@ -1,14 +1,18 @@
 const express = require("express");
 const Rental = require("../controllers/rentalController");
 const { protect } = require("../middleware/authMiddleware");
-const router = express.Router();
+const router = express.Router({ mergeParams: true });
 
-router.post("", protect, Rental.add);
+// Rental Bookings
+const bookingRoutes = require("./bookingRoutes");
+router.use("/:rentalId/bookings", bookingRoutes);
 
+router.route("/").post(protect, Rental.add).get(Rental.getAll);
+
+router.route("/:rentalId").get(protect, Rental.getById);
 // TODO: Update Rentals protected
 //router.put("/:rentalId", protect, Rental.update);
 
-router.get("", Rental.getAll);
-router.get("/:rentalId", Rental.getById);
+
 
 module.exports = router;
