@@ -21,6 +21,7 @@ const rentalSchema = new Schema(
     image: { type: String, required: true },
     description: { type: String, default: "No description provided." },
     user: { type: Schema.Types.ObjectId, ref: "User" },
+    bookings: [{ type: Schema.Types.ObjectId, ref: "Booking" }],
   },
   {
     timestamps: true,

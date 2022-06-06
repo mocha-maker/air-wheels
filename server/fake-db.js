@@ -1,5 +1,6 @@
 const Rental = require("./models/rentalModel");
 const User = require("./models/userModel");
+const Booking = require("./models/bookingModel");
 
 class FakeDb {
   constructor() {
@@ -50,9 +51,14 @@ class FakeDb {
 
     this.users = [
       {
-        name: "fakeUser",
-        email: "fake@email.com",
+        name: "testUser",
+        email: "test@email.com",
         password: "Password1",
+      },
+      {
+        name: "testUser2",
+        email: "test2@email.com",
+        password: "Password",
       },
     ];
   }
@@ -74,11 +80,13 @@ class FakeDb {
     });
 
     user.save();
+    new User(this.users[1]).save();
   }
 
   async cleanDb() {
-    await User.deleteMany({});
+    await Booking.deleteMany({});
     await Rental.deleteMany({});
+    await User.deleteMany({});
   }
 
   async seedDB() {

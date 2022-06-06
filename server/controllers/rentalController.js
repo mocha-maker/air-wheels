@@ -60,17 +60,20 @@ exports.getAll = expressAsyncHandler((req, res) => {
 exports.getById = expressAsyncHandler((req, res) => {
   const rentalId = req.params.rentalId;
 
-  Rental.findById(rentalId, (err, foundRental) => {
-    if (!foundRental) {
-      res.status(422).send({
-        errors: [
-          {
-            title: "Rental Error!",
-            detail: "Could not find Rental Id: " + rentalId,
-          },
-        ],
-      });
-    }
-    res.json(foundRental);
-  });
+  Rental.findById(rentalId)
+    .populate("bookings", "-_id startDate endDate days totalPrice")
+    .populate("user", "-_id name")
+    .exec((err, foundRental) => {
+      if (!foundRental) {
+        res.status(422).send({
+          errors: [
+            {
+              title: "Rental Error!",
+              detail: "Could not find Rental Id: " + rentalId,
+            },
+          ],
+        });
+      }
+      res.json(foundRental);
+    });
 });

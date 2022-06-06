@@ -10,6 +10,12 @@ const bookingSchema = mongoose.Schema(
       type: Date,
       required: [true, "Please select an end date"],
     },
+    days: {
+      type: Number,
+    },
+    totalPrice: {
+      type: Number,
+    },
     user: {
       type: mongoose.Schema.Types.ObjectId,
       required: true,
@@ -25,5 +31,7 @@ const bookingSchema = mongoose.Schema(
     timestamps: true,
   }
 );
+
+
 
 module.exports = mongoose.model("Booking", bookingSchema);
